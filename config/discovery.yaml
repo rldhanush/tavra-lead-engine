@@ -20,12 +20,6 @@ discovery:
   countries:
     - Germany
     - United Kingdom
-    - United States of America
-    - Australia
-    - Netherlands
-    - Denmark
-    - UAE
-    - Saudi Arabia
 
   # Inclusive range.
   company_size:

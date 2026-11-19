@@ -9,9 +9,9 @@ target_market:
     - United Kingdom
 
   industries:
-    - Software Development Agencies
-    - AI Consultancies
-    - Automation Consultancies
+    - Software Development Agency
+    - AI Consultancy
+    - Automation Consultancy
 
   company_size:
     min_employees: 5
@@ -28,9 +28,9 @@ target_market:
 
 ideal_prospect:
   company_types:
-    - Software Development Agencies
-    - AI Consultancies
-    - Automation Consultancies
+    - Software Development Agency
+    - AI Consultancy
+    - Automation Consultancy
 
   decision_makers:
     - Founder
