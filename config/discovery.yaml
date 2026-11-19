@@ -13,6 +13,8 @@ discovery:
 
   # Search terms, not stored values. Each result is stored with the
   # company_type shown, which must be one of target_market.industries.
+  # English categories, searched as "<name> in <country>" for every
+  # country without an entry in localized_queries.
   search_categories:
     - name: Software Development Agencies
       company_type: Software Development Agency
@@ -23,9 +25,62 @@ discovery:
     - name: AI Automation Agencies
       company_type: Automation Consultancy
 
+  # Native-language queries, searched as written. A country listed here
+  # uses these instead of search_categories.
+  localized_queries:
+    Germany:
+      - query: Softwareagentur Deutschland
+        company_type: Software Development Agency
+      - query: Softwareentwicklung Agentur Deutschland
+        company_type: Software Development Agency
+      - query: Individualsoftware Entwicklung Deutschland
+        company_type: Software Development Agency
+      - query: KI-Beratung Deutschland
+        company_type: AI Consultancy
+      - query: KI-Entwicklung Deutschland
+        company_type: AI Consultancy
+      - query: KI-Automatisierung Agentur Deutschland
+        company_type: Automation Consultancy
+      - query: Prozessautomatisierung Beratung Deutschland
+        company_type: Automation Consultancy
+
   countries:
     - Germany
     - United Kingdom
+
+  # Directories and listing platforms, never stored as leads.
+  # Subdomains are excluded too (e.g. uk.clutch.co).
+  excluded_domains:
+    - clutch.co
+    - goodfirms.co
+    - designrush.com
+    - sortlist.com
+    - themanifest.com
+    - techbehemoths.com
+    - topdevelopers.co
+    - linkedin.com
+    - crunchbase.com
+
+  # Phrases suggesting a company sells the same white-label capacity as
+  # Tavra. Matches are kept but flagged for manual review, not excluded.
+  # Matched case-insensitively; hyphens count as spaces.
+  competitor_review_keywords:
+    - Staff augmentation
+    - Team augmentation
+    - Offshore development centre
+    - Offshore development center
+    - Offshore delivery centre
+    - Offshore delivery center
+    - Developer outsourcing
+    - Network of AI experts
+    - AI expert network
+    - Machine Learning experts
+    - Global network of experts
+    - Delivery office
+    - Development centre in India
+    - Development center in India
+    - Offshore development team
+    - Offshore engineering team
 
   # Inclusive range.
   company_size:
