@@ -1,0 +1,57 @@
+
+discovery:
+  purpose: Define where and how to find prospects matching target-market.yaml
+
+  # Planned sources. None are integrated yet.
+  sources:
+    - name: Exa Search
+      status: planned
+    - name: Apollo
+      status: planned
+    - name: Company Websites
+      status: planned
+
+  search_categories:
+    - Software Development Agencies
+    - AI Development Consultancies
+    - AI Automation Agencies
+    - Custom Software Development Companies
+
+  countries:
+    - Germany
+    - United Kingdom
+    - United States of America
+    - Australia
+    - Netherlands
+    - Denmark
+    - UAE
+    - Saudi Arabia
+
+  # Inclusive range.
+  company_size:
+    min_employees: 5
+    max_employees: 100
+
+  signals:
+    - Developer hiring activity
+    - AI service launches
+    - Agency growth
+    - Custom software services
+    - Evidence of active client projects
+
+  # Fields every discovered company record must capture.
+  result_fields:
+    - name: company_name
+      required: true
+    - name: website
+      required: true
+    - name: country
+      required: true
+    - name: company_type
+      required: true
+    - name: employee_count
+      required: false   # Only if available.
+    - name: source_url
+      required: true
+    - name: discovery_date
+      required: true    # ISO 8601, e.g. 2026-11-19
