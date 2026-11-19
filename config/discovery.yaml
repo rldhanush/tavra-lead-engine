@@ -11,11 +11,17 @@ discovery:
     - name: Company Websites
       status: planned
 
+  # Search terms, not stored values. Each result is stored with the
+  # company_type shown, which must be one of target_market.industries.
   search_categories:
-    - Software Development Agencies
-    - AI Development Consultancies
-    - AI Automation Agencies
-    - Custom Software Development Companies
+    - name: Software Development Agencies
+      company_type: Software Development Agency
+    - name: Custom Software Development Companies
+      company_type: Software Development Agency
+    - name: AI Development Consultancies
+      company_type: AI Consultancy
+    - name: AI Automation Agencies
+      company_type: Automation Consultancy
 
   countries:
     - Germany
@@ -26,6 +32,8 @@ discovery:
     min_employees: 5
     max_employees: 100
 
+  # Used to find companies. Qualifying them uses
+  # lead_qualification.priority_signals in target-market.yaml.
   signals:
     - Developer hiring activity
     - AI service launches
@@ -33,7 +41,8 @@ discovery:
     - Custom software services
     - Evidence of active client projects
 
-  # Fields every discovered company record must capture.
+  # Columns of every lead record, in CSV order.
+  # See docs/lead-data-structure.md.
   result_fields:
     - name: company_name
       required: true
@@ -45,7 +54,16 @@ discovery:
       required: true
     - name: employee_count
       required: false   # Only if available.
+    - name: description
+      required: false
+    - name: services_offered
+      required: false
+    - name: discovery_source
+      required: true
     - name: source_url
       required: true
     - name: discovery_date
       required: true    # ISO 8601, e.g. 2026-11-19
+    - name: lead_status
+      required: true
+      default: new

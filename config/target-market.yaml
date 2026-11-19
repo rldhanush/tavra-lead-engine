@@ -8,6 +8,7 @@ target_market:
     - Germany
     - United Kingdom
 
+  # Single source of truth for company types.
   industries:
     - Software Development Agency
     - AI Consultancy
@@ -27,11 +28,6 @@ target_market:
     - SaaS Development
 
 ideal_prospect:
-  company_types:
-    - Software Development Agency
-    - AI Consultancy
-    - Automation Consultancy
-
   decision_makers:
     - Founder
     - Co-Founder

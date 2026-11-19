@@ -2,7 +2,7 @@
 
 One row per discovered company. Stored as CSV with a header row, UTF-8 encoded.
 
-Allowed values come from `config/target-market.yaml` (company types, size) and `config/discovery.yaml` (countries, sources).
+Columns match `discovery.result_fields` in `config/discovery.yaml`, in the same order. Allowed values come from `config/target-market.yaml` (company types, size) and `config/discovery.yaml` (countries, sources, category mapping).
 
 ## Fields
 
@@ -11,7 +11,7 @@ Allowed values come from `config/target-market.yaml` (company types, size) and `
 | 1 | `company_name` | Yes | Text | Official company name |
 | 2 | `website` | Yes | URL | Company homepage, e.g. `https://example.com` |
 | 3 | `country` | Yes | Text | One of `discovery.countries` |
-| 4 | `company_type` | Yes | Text | One of `ideal_prospect.company_types`. See [Company type](#company-type) |
+| 4 | `company_type` | Yes | Text | One of `target_market.industries`. See [Company type](#company-type) |
 | 5 | `employee_count` | No | Whole number | Leave empty if unknown. Must be 5–100 inclusive if known |
 | 6 | `description` | No | Text | Short summary of what the company does |
 | 7 | `services_offered` | No | List | Separated by semicolons, e.g. `AI Integration; SaaS Development` |
@@ -28,14 +28,7 @@ Allowed values come from `config/target-market.yaml` (company types, size) and `
 - `AI Consultancy`
 - `Automation Consultancy`
 
-The four discovery search categories are search terms, not stored values. Map each result to a standard type:
-
-| Search category | Stored `company_type` |
-|-----------------|-----------------------|
-| Software Development Agencies | Software Development Agency |
-| Custom Software Development Companies | Software Development Agency |
-| AI Development Consultancies | AI Consultancy |
-| AI Automation Agencies | Automation Consultancy |
+The four discovery search categories are search terms, not stored values. Each result takes the `company_type` set for its category in `discovery.search_categories`.
 
 ## Lead status
 
